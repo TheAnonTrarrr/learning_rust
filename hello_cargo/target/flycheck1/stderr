@@ -1,0 +1,37 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   0.190231390s  INFO prepare_target{force=false package_id=hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo) target="hello_cargo"}: cargo::core::compiler::fingerprint: stale: changed "/Users/andreiignatovskii/learning_rust/hello_cargo/src/main.rs"
+   0.190268610s  INFO prepare_target{force=false package_id=hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo) target="hello_cargo"}: cargo::core::compiler::fingerprint:           (vs) "/Users/andreiignatovskii/.cargo/build-cache/debug/.fingerprint/hello_cargo-52d796d088bf933e/dep-bin-hello_cargo"
+   0.190275124s  INFO prepare_target{force=false package_id=hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo) target="hello_cargo"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1780846702, nanos: 964125753 } < FileTime { seconds: 1780848019, nanos: 6284589 }
+   0.191036159s  INFO prepare_target{force=false package_id=hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo) target="hello_cargo"}: cargo::core::compiler::fingerprint: fingerprint dirty for hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo)/Check { test: false }/TargetInner { name: "hello_cargo", doc: true, ..: with_path("/Users/andreiignatovskii/learning_rust/hello_cargo/src/main.rs", Edition2024) }
+   0.191075946s  INFO prepare_target{force=false package_id=hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo) target="hello_cargo"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/Users/andreiignatovskii/.cargo/build-cache/debug/.fingerprint/hello_cargo-52d796d088bf933e/dep-bin-hello_cargo", reference_mtime: FileTime { seconds: 1780846702, nanos: 964125753 }, stale: "/Users/andreiignatovskii/learning_rust/hello_cargo/src/main.rs", stale_mtime: FileTime { seconds: 1780848019, nanos: 6284589 } }))
+   0.193918776s  INFO prepare_target{force=false package_id=hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo) target="hello_cargo"}: cargo::core::compiler::fingerprint: fingerprint error for hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo)/Check { test: true }/TargetInner { name: "hello_cargo", doc: true, ..: with_path("/Users/andreiignatovskii/learning_rust/hello_cargo/src/main.rs", Edition2024) }
+   0.193937635s  INFO prepare_target{force=false package_id=hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo) target="hello_cargo"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/andreiignatovskii/.cargo/build-cache/debug/.fingerprint/hello_cargo-6c5c8b6f723da33d/test-bin-hello_cargo`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <std::backtrace::Backtrace>::create
+   1: <std::backtrace::Backtrace>::capture
+   2: cargo_util::paths::read_bytes
+   3: cargo_util::paths::read
+   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   5: cargo::core::compiler::fingerprint::prepare_target
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+  18: <unknown>
+    Checking hello_cargo v0.1.0 (/Users/andreiignatovskii/learning_rust/hello_cargo)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.60s
